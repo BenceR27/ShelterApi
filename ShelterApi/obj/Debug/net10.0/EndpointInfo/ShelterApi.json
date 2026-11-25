@@ -176,6 +176,18 @@
           }
         }
       }
+    },
+    "/queries/allAnimalsWithShelter": {
+      "get": {
+        "tags": [
+          "Queries"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {

@@ -46,5 +46,34 @@ namespace ShelterApi.Controllers
 
             return StatusCode(404, new { message = "Nincs találat", result = shelter });
         }
+
+        [HttpGet("allAnimalsWithShelter")]
+        public async Task<IActionResult> AllAnimalsWithShelter()
+        {
+            var animals = await _context.Animals
+                .Join(
+                    _context.Shelters,
+                    animal => animal.ShelterId,
+                    shelter => shelter.Id,
+                    (animal, shelter) => new
+                    {
+                        animal.Id,
+                        animal.Name,
+                        animal.Species,
+                        animal.Age,
+                        animal.Weight,
+                        animal.RegTime,
+                        ShelterName = shelter.Name
+                    }
+                )
+                .ToListAsync();
+
+            if (animals is not null)
+            {
+                return StatusCode(200, new { message = "Lekérdezve", result = animals });
+            }
+
+            return StatusCode(400, new { message = "Hiba", result = animals });
+        }
     }
 }
