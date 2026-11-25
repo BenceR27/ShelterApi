@@ -5,11 +5,11 @@ namespace ShelterApi.Models;
 
 public partial class Shelter
 {
-    public string Id { get; set; } = null!;
+    public string? Id { get; set; } 
 
-    public string Name { get; set; } = null!;
+    public string? Name { get; set; } 
 
-    public string City { get; set; } = null!;
+    public string? City { get; set; } 
 
     public int Capacity { get; set; }
 

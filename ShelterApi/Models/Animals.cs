@@ -6,11 +6,11 @@ namespace ShelterApi.Models;
 
 public partial class Animal
 {
-    public string Id { get; set; } = null!;
+    public string? Id { get; set; } 
 
-    public string Name { get; set; } = null!;
+    public string? Name { get; set; } 
 
-    public string Species { get; set; } = null!;
+    public string? Species { get; set; } 
 
     public int Age { get; set; }
 
@@ -18,8 +18,8 @@ public partial class Animal
 
     public DateTime RegTime { get; set; }
 
-    public string ShelterId { get; set; } = null!;
+    public string? ShelterId { get; set; } 
 
     [JsonIgnore]
-    public virtual Shelter Shelter { get; set; } = null!;
+    public virtual Shelter? Shelter { get; set; } 
 }
